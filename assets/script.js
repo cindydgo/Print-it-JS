@@ -21,7 +21,7 @@ const slides = [
 //Déclaration de constantes  
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
-
+const dotsContainer = document.querySelector(".dots");
 
 //Déclaration de la variable slideIndex à 0
 let slideIndex = 0;
@@ -53,4 +53,12 @@ arrowLeft.addEventListener('click', prevSlide);
 
 //event listener clic droit
 arrowRight.addEventListener('click', nextSlide);
+
+//bullet points
+//Boucle for affichant un nombre de points en fonction du nombre elements du tableau
+for (let i = 0; i < slides.length; i++) {
+	const dotsChildren= document.createElement('div'); //Crée nouvel élément div
+	dotsChildren.classList.add('dot');
+	dotsContainer.appendChild(dotsChildren); //On rattache dotsChildren('div') a son parent dotsContainer("dots")
+}
 

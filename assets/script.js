@@ -1,3 +1,4 @@
+// Déclaration constante du tableau contenant les slides
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -16,3 +17,40 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+//Déclaration de constantes  
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+
+
+//Déclaration de la variable slideIndex à 0
+let slideIndex = 0;
+
+//Fonction pour executer la slide precedente
+prevSlide = () => {
+	if (slideIndex == 0) {
+		slideIndex = slides.length -1;
+	
+	} else {
+	    slideIndex -=1;//décrémente de 1
+    }
+//();
+};
+
+//Fonction pour executer la slide suivante
+nextSlide = () => {
+	if (slideIndex == slides.length -1) {
+		slideIndex = 0;
+	
+	} else {
+	    slideIndex += 1;//incrémente de 1
+    }
+//();
+};
+
+//event listener clic gauche
+arrowLeft.addEventListener('click', prevSlide);
+
+//event listener clic droit
+arrowRight.addEventListener('click', nextSlide);
+

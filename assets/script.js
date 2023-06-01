@@ -18,34 +18,33 @@ const slides = [
 	}
 ]
 
-//Déclaration de constantes  
+//Declaration de constantes  
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 const dotsContainer = document.querySelector(".dots");
+const banner = document.getElementById ('#banner');
+const bannerImage = document.querySelector('#banner > img')
+const bannerTagLine = document.querySelector('#banner > p');
 
-//Déclaration de la variable slideIndex à 0
+//Declaration de la variable slideIndex à 0
 let slideIndex = 0;
 
 //Fonction pour executer la slide precedente
 prevSlide = () => {
 	if (slideIndex == 0) {
 		slideIndex = slides.length -1;
-	
 	} else {
-	    slideIndex -=1;//décrémente de 1
+	    slideIndex -=1;//decremente de 1
     }
-//();
 };
 
 //Fonction pour executer la slide suivante
 nextSlide = () => {
 	if (slideIndex == slides.length -1) {
 		slideIndex = 0;
-	
 	} else {
-	    slideIndex += 1;//incrémente de 1
+	    slideIndex += 1;//incremente de 1
     }
-//();
 };
 
 //event listener clic gauche
@@ -57,8 +56,10 @@ arrowRight.addEventListener('click', nextSlide);
 //bullet points
 //Boucle for affichant un nombre de points en fonction du nombre elements du tableau
 for (let i = 0; i < slides.length; i++) {
-	const dotsChildren= document.createElement('div'); //Crée nouvel élément div
-	dotsChildren.classList.add('dot');
-	dotsContainer.appendChild(dotsChildren); //On rattache dotsChildren('div') a son parent dotsContainer("dots")
+	const dot= document.createElement('div'); //Cree nouvel élément div
+	dot.classList.add('dot');
+	dotsContainer.appendChild(dot); //On rattache dotsChildren('div') a son parent dotsContainer("dots")
+	if (i == 0) { // Selectionne le premier bullet point
+	dotsContainer.children[i].classList.add('dot_selected');
+	}
 }
-

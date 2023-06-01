@@ -36,6 +36,7 @@ prevSlide = () => {
 	} else {
 	    slideIndex -=1;//decremente de 1
     }
+bannerImageTagLine();
 };
 
 //Fonction pour executer la slide suivante
@@ -45,6 +46,7 @@ nextSlide = () => {
 	} else {
 	    slideIndex += 1;//incremente de 1
     }
+bannerImageTagLine();
 };
 
 //event listener clic gauche
@@ -77,3 +79,9 @@ function dotSelected() {
     }
 }
 
+//Ajout des taglines et images correspondantes aux slides
+function bannerImageTagLine() {
+    bannerImage.src = './assets/images/slideshow/' + slides[slideIndex].image;
+    bannerTagLine.innerHTML = slides[slideIndex].tagLine; // innerHTML permet de recuperer ou de definir le code HTML present à l interieur d un element
+	dotSelected();
+}

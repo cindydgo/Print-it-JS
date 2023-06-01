@@ -63,3 +63,17 @@ for (let i = 0; i < slides.length; i++) {
 	dotsContainer.children[i].classList.add('dot_selected');
 	}
 }
+
+// Change le bullet point actif/selectionne  
+function dotSelected() {
+    const dot = document.getElementsByClassName('dot');
+    for (let i = 0; i < dot.length; i++) {
+        if  (i == slideIndex){
+		    dot[i].classList.add('dot_selected');
+        }
+		else {
+            dot[i].classList.remove('dot_selected');
+		}
+    }
+}
+
